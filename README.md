@@ -15,8 +15,6 @@ The document address：http://docs.tong3d.com/engine/pro/cn/guide-index.html
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/script.png)  
 ####Custom components:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/attribute.png)  
-####Settings:  
-![Image text](http://p2zwa66ps.bkt.clouddn.com/Settings.png)  
 ####Scene Analysis:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/profile.png)  
 ####Console Output:  
