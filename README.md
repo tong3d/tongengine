@@ -11,8 +11,6 @@ The document address：http://docs.tong3d.com/engine/pro/cn/guide-index.html
 ![image](http://p3q4wq7vl.bkt.clouddn.com/physiAni.gif)  
 ####Scene Editor:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/viewport.png)  
-####Toolbar:  
-![Image text](http://p2zwa66ps.bkt.clouddn.com/toolbar.png)  
 ####Code Editor:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/script.png)  
 ####Property Editor:  
