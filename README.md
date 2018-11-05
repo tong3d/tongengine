@@ -6,11 +6,11 @@ The document address：http://docs.tong3d.com/engine/pro/cn/guide-index.html
 ####Editor interface:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/tong_editor.png)  
 ####Animation System:  
-![Image text](http://p2zwa66ps.bkt.clouddn.com/timeline.png)  
+![image](http://p3q4wq7vl.bkt.clouddn.com/aniEdi.gif)   
 ####Physical System:    
 ![image](http://p3q4wq7vl.bkt.clouddn.com/physiAni.gif)  
-####Scene Editor:  
-![Image text](http://p2zwa66ps.bkt.clouddn.com/viewport.png)  
+####3D Text Editor:  
+![image](http://p2zwa66ps.bkt.clouddn.com/xihuatext3d.png)  
 ####Code Editor:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/script.png)  
 ####Property Editor:  
