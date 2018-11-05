@@ -13,7 +13,7 @@ The document address：http://docs.tong3d.com/engine/pro/cn/guide-index.html
 ![image](http://p2zwa66ps.bkt.clouddn.com/xihuatext3d.png)  
 ####Code Editor:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/script.png)  
-####Property Editor:  
+####Custom components:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/attribute.png)  
 ####Settings:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/Settings.png)  
