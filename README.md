@@ -7,7 +7,7 @@ The document address：http://docs.tong3d.com/engine/pro/cn/guide-index.html
 #### Editor interface:  
 ![Image text](http://p2zwa66ps.bkt.clouddn.com/engine_ui.png)  
 #### Import Model:  
-![Image text](http://p2zwa66ps.bkt.clouddn.com/import_model.png)  
+![Image text](http://p2zwa66ps.bkt.clouddn.com/engineScene_.png)  
 #### Animation System:  
 ![image](http://p3q4wq7vl.bkt.clouddn.com/aniEdi.gif)   
 #### Physical System:    
