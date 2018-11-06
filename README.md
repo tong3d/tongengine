@@ -10,6 +10,8 @@ The document address：http://docs.tong3d.com/engine/pro/cn/guide-index.html
 ![image](http://p3q4wq7vl.bkt.clouddn.com/aniEdi.gif)   
 #### Physical System:    
 ![image](http://p3q4wq7vl.bkt.clouddn.com/physiAni.gif)  
+#### Video Texture Play:  
+![image](http://p2zwa66ps.bkt.clouddn.com/20181106162141.gif)  
 #### 3D Text Editor:  
 ![image](http://p2zwa66ps.bkt.clouddn.com/xihuatext3d.png)  
 #### Code Editor:  
