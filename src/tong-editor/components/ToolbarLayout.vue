@@ -17,5 +17,6 @@ export default {
     left 300px
     right 300px
     border-bottom 1px solid #EEE
+    z-index 2
 </style>
 

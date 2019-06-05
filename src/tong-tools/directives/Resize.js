@@ -23,8 +23,10 @@ let setDragEffectEles = (ele) => {
                             val = currEleRect[dir]
                             break
                         case 'top':
+                            val = currEleRect[dir]
                             break
                         case 'bottom':
+                            val = document.body.clientHeight - currEleRect[dir]
                             break
                     }
                     item.style[beAffected[dir]] = `${val}px`
