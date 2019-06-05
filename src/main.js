@@ -2,7 +2,6 @@ import Vue from 'vue'
 //import Vuex from "vuex";
 //Vue.config.productionTip = false
 import TongEditor from "./tong-editor"
-import VueI18n from 'vue-i18n'
 import TongEngine from "./tong-render"
 import Tools from "./tong-tools"
 import Inspector from './tong-inspector'
@@ -12,7 +11,7 @@ import Toolbar from "./tong-toolbar"
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // import './element-#313131/index.css'
-import i18n from './i18n'
+import i18n from './assets/i18n'
 import App from './tong-editor/App.vue'
 Vue.use(TongEditor)
 Vue.use(TongEngine)
