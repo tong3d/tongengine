@@ -1,5 +1,5 @@
 <template>
-    <div class="resource-tabs" v-resize-top>
+    <div class="resource-tabs">
         <tong-tabs :popupDatas="popupDatas" :editableTabs='editableTabs'></tong-tabs>
     </div>
 </template>
@@ -33,7 +33,7 @@
     position absolute
     left 300px
     right 300px
-    top 500px
+    height 360px
     bottom 0px
     border-top 1px solid #EEE
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="inspector-tabs" v-resize-left>
+    <div class="inspector-tabs">
        <tong-tabs :popupDatas="popupDatas" :editableTabs='editableTabs'></tong-tabs>
     </div>
 </template>
@@ -33,6 +33,7 @@ export default {
     position absolute
     right 0px
     width 300px
+    min-width 300px
     height 100%
     border-left 1px solid #EEE
 </style>

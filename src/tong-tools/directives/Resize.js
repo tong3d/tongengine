@@ -1,52 +1,94 @@
+let resizeEles = []
+let beAffected = {
+    'left': 'right',
+    'right': 'left',
+    'top': 'bottom',
+    'bottom': 'top'
+}
+// 设置拖拽影响的元素
+let setDragEffectEles = (ele) => {
+    let currEleRect = ele.getBoundingClientRect()
+    resizeEles.forEach((item)=>{
+        if (item !== ele) {
+            let effects = item.effect
+            for (let i in effects) {
+                if (ele.classList.contains(effects[i].effect)) {
+                    let dir = effects[i].dir
+                    let val = 0
+                    switch (dir) {
+                        case 'left':
+                            val = document.body.clientWidth - currEleRect[dir]
+                            break
+                        case 'right':
+                            val = currEleRect[dir]
+                            break
+                        case 'top':
+                            break
+                        case 'bottom':
+                            break
+                    }
+                    item.style[beAffected[dir]] = `${val}px`
+                }
+            }
+        }
+    })
+}
+// 创建拖拽
 let createDragEve = (dir, ele, handleArea)=>{
     let isMouseDown =false
-    let usePercentage = !!(ele.style.width + '').match('%')
-    const resize = (initialSize, offset = 0) => {
-        if (layout == LAYOUT_VERTICAL) {
-          let containerWidth = container.clientWidth;
-          let paneWidth = initialSize + offset;
-
-          return (ele.style.width = usePercentage
-            ? paneWidth / containerWidth * 100 + '%'
-            : paneWidth + 'px');
+    let useHorPercentage = !!(ele.style.width + '').match('%')
+    let useVerPercentage = !!(ele.style.height + '').match('%')
+    let container = ele
+    const resize = (ele, dir, offset) => {
+        if (dir === 'left' || dir === 'right') {
+            let containerWidth = ele.clientWidth
+            let paneWidth = offset
+            ele.style.width = useHorPercentage ? paneWidth / containerWidth * 100 + '%' : paneWidth + 'px'
+        } else {
+            let containerHeight = ele.clientHeight
+            let paneHeight = offset
+            ele.style.height = useVerPercentage ? paneHeight / containerHeight * 100 + '%' : paneHeight + 'px'
         }
-
-        if (layout == LAYOUT_HORIZONTAL) {
-          let containerHeight = container.clientHeight;
-          let paneHeight = initialSize + offset;
-
-          return (ele.style.height = usePercentage
-            ? paneHeight / containerHeight * 100 + '%'
-            : paneHeight + 'px');
-        }
+        setDragEffectEles(ele)
     }
-    const { addEventListener, removeEventListener } = window
-    handleArea.addEventListener('mouseover', ()=>{
+    const { addEventListener } = window
+    handleArea.addEventListener('mouseover', () => {
         let cursor = (dir === 'right' || dir === 'left')?'ew-resize' : 'ns-resize'
         handleArea.style.cursor= cursor
     },false)
-    handleArea.addEventListener('mousedown', ()=>{
+    let rect = null
+    handleArea.addEventListener('mousedown', () => {
+        rect = container.getBoundingClientRect()
         isMouseDown = true
     },false)
-    handleArea.addEventListener('mousemove', (ev)=>{
+    handleArea.mouseMove = (eve) => {
         if (isMouseDown) {
-            let clientX = ev.clientX
-            let clientY = ev.clientY
-            console.log (clientX)
-            ele.style.width = clientX+'px'
+            switch (dir) {
+                case 'left':
+                    resize(container, dir, (rect.left + rect.width) - eve.clientX)
+                    break
+                case 'right':
+                    resize(container, dir, eve.clientX - rect.left)
+                    break
+                case 'top':
+                    resize(container, dir, (rect.top + rect.height) - eve.clientY)
+                    break
+                case 'bottom':
+                    resize(container, dir, eve.clientY - rect.top)
+                    break
+            }
         }
-    },false)
-    handleArea.addEventListener('mouseup', ()=>{
-        //isMouseDown = false
-    },false)
-    addEventListener('mousemove', onMouseMove);
-    addEventListener('mouseup', onMouseUp);
+    }
+    handleArea.mouseUp = (eve) => {
+        isMouseDown = false
+    }
+    addEventListener('mousemove', handleArea.mouseMove)
+    addEventListener('mouseup', handleArea.mouseUp)
 }
 // dir = right/left/top/bottom
-let createHandler = (dir, ele)=>{
+let createHandler = (dir, ele, bind)=>{
     let handleArea = document.createElement('div')
     handleArea.style.position='absolute'
-    let isMouseDown = false
     switch (dir) {
         case 'left':
         case 'right':
@@ -65,27 +107,29 @@ let createHandler = (dir, ele)=>{
     }
     createDragEve (dir, ele, handleArea)
     ele.appendChild (handleArea)
+    ele.effect = bind.value
+    resizeEles.push(ele)
     return handleArea
 }
 export default {
     resizeRight: {
-        inserted(el){
-            createHandler ('right', el)
+        inserted(el, bind){
+            createHandler ('right', el, bind)
         }
     },
     resizeLeft: {
-        inserted(el){
-            createHandler ('left', el)
+        inserted(el, bind){
+            createHandler ('left', el, bind)
         }
     },
     resizeTop: {
-        inserted(el){
-            createHandler ('top', el)
+        inserted(el, bind){
+            createHandler ('top', el, bind)
         }
     },
     resizeBottom: {
-        inserted(el){
-            createHandler ('bottom', el)
+        inserted(el, bind){
+            createHandler ('bottom', el, bind)
         }
     }
 }
