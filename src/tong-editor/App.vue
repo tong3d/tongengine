@@ -7,6 +7,7 @@
     </div>
 </template>
 <script>
+let a = 0
 export default {
    props:{
         popupDatas:{
