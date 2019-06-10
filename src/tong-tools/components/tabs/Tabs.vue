@@ -1,14 +1,15 @@
 <template>
-    <div>
+    <div class="tong_tabs">
         <tong-popup-menu ref="popupContext" @select="onPopupSelect" :data="popupDatas"></tong-popup-menu>
-        <tong-el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
+        <tong-el-tabs v-model="editableTabsValue" class="tong_el_tabs" type="card" editable @edit="handleTabsEdit">
             <el-tab-pane
+                class="tong_el_tab_pane"
                 :key="index"
                 v-for="(item, index) in editableTabs"
                 :label="item.title"
                 :name="item.name"
             >
-            <component :if='item.content && item.content.length>0' :is= 'item.content'></component>
+            <component class="tong_el_tab_component" :if='item.content && item.content.length>0' :is= 'item.content'></component>
             </el-tab-pane>
         </tong-el-tabs>
     </div>
@@ -83,4 +84,11 @@ export default {
     padding: 0
     position: relative
     margin: 0 0 0px
+>>> .el-tabs__content
+.tong_tabs
+.tong_el_tabs
+.tong_el_tab_pane
+.tong_el_tab_component
+    width 100%
+    height 100%
 </style>

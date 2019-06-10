@@ -2,7 +2,7 @@
     <div>
         <tong-hierarchy-tabs :popupDatas="popupDatas" v-resize-right></tong-hierarchy-tabs>
         <tong-inspector-tabs :popupDatas="popupDatas" v-resize-left></tong-inspector-tabs>
-        <tong-resource-tabs :popupDatas="popupDatas" v-resize-top="[{effect:'hierarchy-tabs',dir:'right'},{effect:'inspector-tabs',dir:'left'}]"></tong-resource-tabs>
+        <tong-resource-tabs @t-resize="resourceResize" :popupDatas="popupDatas" v-resize-top="[{effect:'hierarchy-tabs',dir:'right'},{effect:'inspector-tabs',dir:'left'}]"></tong-resource-tabs>
         <tong-toolbar-layout></tong-toolbar-layout>
     </div>
 </template>
@@ -42,7 +42,12 @@ export default {
                 }
             }
         }
-   }
+    },
+    methods: {
+        resourceResize(width, height) {
+            console.log(width, height)
+        }
+    }
 }
 </script>
 <style lang="stylus" scoped>

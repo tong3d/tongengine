@@ -35,6 +35,7 @@
     right 300px
     height 360px
     bottom 0px
+    min-height 300px
     border-top 1px solid #EEE
 </style>
 

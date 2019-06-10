@@ -30,6 +30,8 @@ let setDragEffectEles = (ele) => {
                             break
                     }
                     item.style[beAffected[dir]] = `${val}px`
+                    let itemRect = item.getBoundingClientRect()
+                    item.vNode.child.$emit('t-resize', itemRect.width, itemRect.height)
                 }
             }
         }
@@ -51,6 +53,7 @@ let createDragEve = (dir, ele, handleArea)=>{
             let paneHeight = offset
             ele.style.height = useVerPercentage ? paneHeight / containerHeight * 100 + '%' : paneHeight + 'px'
         }
+        ele.vNode.child.$emit('t-resize', ele.style.width, ele.style.height)
         setDragEffectEles(ele)
     }
     const { addEventListener } = window
@@ -88,7 +91,7 @@ let createDragEve = (dir, ele, handleArea)=>{
     addEventListener('mouseup', handleArea.mouseUp)
 }
 // dir = right/left/top/bottom
-let createHandler = (dir, ele, bind)=>{
+let createHandler = (dir, ele, bind, vNode)=>{
     let handleArea = document.createElement('div')
     handleArea.style.position='absolute'
     switch (dir) {
@@ -110,28 +113,29 @@ let createHandler = (dir, ele, bind)=>{
     createDragEve (dir, ele, handleArea)
     ele.appendChild (handleArea)
     ele.effect = bind.value
+    ele.vNode = vNode
     resizeEles.push(ele)
     return handleArea
 }
 export default {
     resizeRight: {
-        inserted(el, bind){
-            createHandler ('right', el, bind)
+        inserted(el, bind, vNode){
+            createHandler ('right', el, bind, vNode)
         }
     },
     resizeLeft: {
-        inserted(el, bind){
-            createHandler ('left', el, bind)
+        inserted(el, bind, vNode){
+            createHandler ('left', el, bind, vNode)
         }
     },
     resizeTop: {
-        inserted(el, bind){
-            createHandler ('top', el, bind)
+        inserted(el, bind, vNode){
+            createHandler ('top', el, bind, vNode)
         }
     },
     resizeBottom: {
-        inserted(el, bind){
-            createHandler ('bottom', el, bind)
+        inserted(el, bind, vNode){
+            createHandler ('bottom', el, bind, vNode)
         }
     }
 }

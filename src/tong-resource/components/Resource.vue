@@ -346,7 +346,7 @@ export default {
 </script>
 <style scoped lang='stylus'>
 .resourceContent
-  height: 300px
+  height: 100%
   border: 1px solid #eee
   .delete-assets
     color #5cb6ff
