@@ -16,25 +16,29 @@ export default {
                 return {
                     color:'#aaa',
                     children:[{
-                        label:'Hierarchy',
+                        label:this.$t('Hierarchy'),
+                        value:'Hierarchy',
                         icon:'',
                         disabled:false,
                         children:[]
                     },
                     {
-                        label:'Inspector',
+                        label:this.$t('Inspector'),
+                        value:'Inspector',
                         icon:'',
                         disabled:false,
                         children:[]
                     },
                     {
-                        label:'Resource',
+                        label:this.$t('Resource'),
+                        value:'Resource',
                         icon:'',
                         disabled:false,
                         children:[]
                     },
                     {
-                        label:'Render',
+                        label:this.$t('Scene'),
+                        value:'Scene',
                         icon:'',
                         disabled:false,
                         children:[]
@@ -46,7 +50,6 @@ export default {
     },
     methods: {
         resourceResize(width, height) {
-            console.log(width, height)
         }
     }
 }

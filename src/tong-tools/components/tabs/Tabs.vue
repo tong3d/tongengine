@@ -32,7 +32,6 @@ export default {
                 }
             }
         }
-
     },
     data() {
         let tabIndex = this.editableTabs.length
@@ -45,35 +44,34 @@ export default {
         // 右键菜单弹出选择事件
         onPopupSelect(data,itemCom){
             let selectItem=data.label
-            let newTabName = ++this.tabIndex + '';
+            let newTabName = ++this.tabIndex + ''
             this.editableTabs.push({
             title: selectItem,
             name: newTabName,
-            content: `Tong${selectItem}App`
-            });
-            this.editableTabsValue = newTabName;
+            content: `Tong${data.value}App`
+            })
+            this.editableTabsValue = newTabName
         },
         handleTabsEdit(eve, targetName, action) {
             if (action === 'add') {
-                console.log (action)
-                this.$refs.popupContext.open(eve.clientX - 1,eve.clientY - 1)
+                let bounding = eve.target.getBoundingClientRect()
+                this.$refs.popupContext.open(bounding.left, bounding.top)
             }
             if (action === 'remove') {
-                let tabs = this.editableTabs;
-                let activeName = this.editableTabsValue;
+                let tabs = this.editableTabs
+                let activeName = this.editableTabsValue
                 if (activeName === targetName) {
                 tabs.forEach((tab, index) => {
                     if (tab.name === targetName) {
-                    let nextTab = tabs[index + 1] || tabs[index - 1];
+                    let nextTab = tabs[index + 1] || tabs[index - 1]
                     if (nextTab) {
-                        activeName = nextTab.name;
+                        activeName = nextTab.name
                     }
                     }
-                });
+                })
                 }
-                
-                this.editableTabsValue = activeName;
-                this.editableTabs = tabs.filter(tab => tab.name !== targetName);
+                this.editableTabsValue = activeName
+                this.editableTabs = tabs.filter(tab => tab.name !== targetName)
             }
         }
     }

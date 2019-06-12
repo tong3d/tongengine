@@ -47,18 +47,16 @@ export default {
     mounted(){
         this.popupEle=this.$refs.tongPopupEle.popperElm
     }
-        
-    
 }
 </script>
 <style lang="stylus" scoped>
 >>> .el-menu--horizontal>.el-submenu
     .el-submenu__title
-        height: 0px;
-        line-height: 0px;
-        border-bottom: 0px solid transparent;
+        height: 0px
+        line-height: 0px
+        border-bottom: 0px solid transparent
 .tong-popup-list
-    position absolute
+    position fixed
     visibility hidden
     left 0px
 >>> .el-submenu__title
