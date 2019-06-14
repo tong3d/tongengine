@@ -5,6 +5,7 @@ let beAffected = {
     'top': 'bottom',
     'bottom': 'top'
 }
+let isInit = false
 // 设置拖拽影响的元素
 let setDragEffectEles = (ele) => {
     let currEleRect = ele.getBoundingClientRect()
@@ -38,7 +39,7 @@ let setDragEffectEles = (ele) => {
     })
 }
 // 创建拖拽
-let createDragEve = (dir, ele, handleArea)=>{
+let createDragEve = (dir, ele, handleArea) => {
     let isMouseDown =false
     let useHorPercentage = !!(ele.style.width + '').match('%')
     let useVerPercentage = !!(ele.style.height + '').match('%')
@@ -87,6 +88,15 @@ let createDragEve = (dir, ele, handleArea)=>{
     handleArea.mouseUp = (eve) => {
         isMouseDown = false
     }
+    if (!isInit) {
+        isInit = true
+        addEventListener('resize', ()=>{
+            resizeEles.forEach((item) => {
+                if (!item.isResize) return
+                setDragEffectEles(item)
+            })
+        })
+    }
     addEventListener('mousemove', handleArea.mouseMove)
     addEventListener('mouseup', handleArea.mouseUp)
 }
@@ -110,11 +120,13 @@ let createHandler = (dir, ele, bind, vNode)=>{
         handleArea.style.left = '0px'
         break
     }
-    createDragEve (dir, ele, handleArea)
     ele.appendChild (handleArea)
     ele.effect = bind.value
     ele.vNode = vNode
+    ele.dir = dir
+    ele.isResize = true
     resizeEles.push(ele)
+    createDragEve (dir, ele, handleArea)
     return handleArea
 }
 export default {

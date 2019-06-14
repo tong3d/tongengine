@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="toolbar_container">
     <tong-toolbar :toolbars="toolbars"/>
   </div>
 </template>
@@ -87,7 +87,8 @@ export default {
 }
 
 </script>
-
-<style>
-
+<style lang="stylus" scoped>
+.toolbar_container
+  background-color #fff
 </style>
+

@@ -51,6 +51,7 @@ export default {
     },
     methods: {
         renderResize(width, height) {
+            console.log(this.$refs['render-layout'].$el.getBoundingClientRect())
             this.$refs['render-layout'].setSize(width, height)
         }
     }
