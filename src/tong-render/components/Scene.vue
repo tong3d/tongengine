@@ -15,7 +15,6 @@ export default {
     curObj.name = curObj.name || curObj.type
     return { curObj }
   },
-
   mounted () {
     let scene = this.curObj
     this.global.scene = scene

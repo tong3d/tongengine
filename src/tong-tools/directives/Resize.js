@@ -8,7 +8,7 @@ let beAffected = {
 // 设置拖拽影响的元素
 let setDragEffectEles = (ele) => {
     let currEleRect = ele.getBoundingClientRect()
-    resizeEles.forEach((item)=>{
+    resizeEles.forEach((item) => {
         if (item !== ele) {
             let effects = item.effect
             for (let i in effects) {
@@ -17,16 +17,16 @@ let setDragEffectEles = (ele) => {
                     let val = 0
                     switch (dir) {
                         case 'left':
-                            val = document.body.clientWidth - currEleRect[dir]
+                            val = window.innerWidth - currEleRect[dir]
                             break
                         case 'right':
                             val = currEleRect[dir]
                             break
                         case 'top':
-                            val = currEleRect[dir]
+                            val = window.innerHeight - currEleRect[dir]
                             break
                         case 'bottom':
-                            val = document.body.clientHeight - currEleRect[dir]
+                            val = window.innerHeight - currEleRect[dir]
                             break
                     }
                     item.style[beAffected[dir]] = `${val}px`
@@ -119,23 +119,30 @@ let createHandler = (dir, ele, bind, vNode)=>{
 }
 export default {
     resizeRight: {
-        inserted(el, bind, vNode){
+        inserted(el, bind, vNode) {
             createHandler ('right', el, bind, vNode)
         }
     },
     resizeLeft: {
-        inserted(el, bind, vNode){
+        inserted(el, bind, vNode) {
             createHandler ('left', el, bind, vNode)
         }
     },
     resizeTop: {
-        inserted(el, bind, vNode){
+        inserted(el, bind, vNode) {
             createHandler ('top', el, bind, vNode)
         }
     },
     resizeBottom: {
-        inserted(el, bind, vNode){
+        inserted(el, bind, vNode) {
             createHandler ('bottom', el, bind, vNode)
+        }
+    },
+    effectResize: {
+        inserted(el, bind, vNode) {
+            el.effect = bind.value
+            el.vNode = vNode
+            resizeEles.push(el)
         }
     }
 }

@@ -6,10 +6,8 @@
     </material>
   </mesh>
 </template>
-
 <script>
-import Object3D from './components/3d/Object3D'
-
+import Object3D from '../Object3D'
 export default {
   name: 'cube',
   mixins: [Object3D],
