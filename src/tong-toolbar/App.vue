@@ -3,10 +3,8 @@
     <tong-toolbar :toolbars="toolbars"/>
   </div>
 </template>
-
 <script>
-//import Inspector from './tong-inspector'
-
+// import Inspector from './tong-inspector'
 export default {
   data(){
       return {
@@ -20,15 +18,12 @@ export default {
                         icon:'iconfont tong-icon1'
                       },
                       {
-                        
                         icon:'iconfont tong-iconxuanzhuan'
                       },
                       {
-                        
                         icon:'iconfont tong-iconsuofang'
                       },
                       {
-                        
                         icon:'iconfont tong-iconhand'
                       }
                     ]
@@ -37,7 +32,6 @@ export default {
                     action:'check',
                     children:[
                       {
-                        
                         value:true,
                         icon:'iconfont tong-iconearth'
                       }
