@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "dat.gui": "^0.7.6",
-    "element-ui": "^2.5.4",
+    "element-ui": "^2.9.1",
     "oimo": "^1.0.9",
     "phaser": "^3.17.0",
     "stylus": "^0.54.5",

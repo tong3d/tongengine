@@ -6,80 +6,98 @@
 <script>
 // import Inspector from './tong-inspector'
 export default {
-  data(){
+  data() {
       return {
-          toolbars:{
-              children:[
+          toolbars: {
+            children: [
+              // {
+              //   action: 'menu',
+              //   children: [{
+              //       trigger: 'hover',
+              //       type: 'el-image',
+              //       src: 'https://tong3d.com/engine/css/pic/toolBar/logoMini.png'
+              //     }
+              //   ]
+              // },
+              {
+                action: 'radio',
+                children: [
                   {
-                    action:'radio',
-                    children:[
-                      {
-                        value:true,
-                        icon:'iconfont tong-icon1'
-                      },
-                      {
-                        icon:'iconfont tong-iconxuanzhuan'
-                      },
-                      {
-                        icon:'iconfont tong-iconsuofang'
-                      },
-                      {
-                        icon:'iconfont tong-iconhand'
-                      }
-                    ]
+                    value: true,
+                    icon: 'iconfont tong-icon1'
                   },
                   {
-                    action:'check',
-                    children:[
-                      {
-                        value:true,
-                        icon:'iconfont tong-iconearth'
-                      }
-                    ]
+                    icon: 'iconfont tong-iconxuanzhuan'
                   },
                   {
-                    children:[
-                      {
-                        type:'el-select',
-                        value:{},
-                        placeholder:`${this.$t('Help')}...?`,
-                        icon:'iconfont tong-iconearth'
-                      }
-                    ]
+                    icon: 'iconfont tong-iconsuofang'
                   },
                   {
-                    action:'check',
-                    children:[
-                      {
-                        value:false,
-                        icon:'iconfont tong-iconquanping'
-                      }
-                    ]
-                  },
-                  {
-                    action:'check',
-                    children:[
-                      {
-                        value:false,
-                        icon:'iconfont tong-iconcitie-weidianji'
-                      }
-                    ]
-                  },
-                  {
-                    action:'check',
-                    children:[
-                      {
-                        value:true,
-                        icon:'iconfont tong-iconplay'
-                      }
-                    ]
+                    icon: 'iconfont tong-iconhand'
                   }
-              ]
+                ]
+              },
+              {
+                action: 'check',
+                children: [
+                  {
+                    value: true,
+                    icon: 'iconfont tong-iconearth'
+                  }
+                ]
+              },
+              {
+              children: [
+                  {
+                    type: 'el-select',
+                    value: {},
+                    placeholder: `${this.$t('Help')}...?`,
+                    icon: 'iconfont tong-iconearth'
+                  }
+                ]
+              },
+              {
+                action: 'check',
+                children: [
+                  {
+                    value: false,
+                    icon: 'iconfont tong-iconquanping'
+                  }
+                ]
+              },
+              {
+                action: 'check',
+                children: [
+                  {
+                    value: false,
+                    icon: 'iconfont tong-iconcitie-weidianji'
+                  }
+                ]
+              },
+              {
+                action: 'check',
+                children: [
+                  {
+                    value: true,
+                    icon: 'iconfont tong-iconplay'
+                  }
+                ]
+              },
+              // {
+              //   action: 'check',
+              //   children: [
+              //     {
+              //       value: true,
+              //       icon: 'iconfont tong-iconplay',
+              //       align: 'right'
+              //     }
+              //   ]
+              // }
+            ]
           }
       }
   }
 }
-
 </script>
 <style lang="stylus" scoped>
 .toolbar_container
