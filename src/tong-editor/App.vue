@@ -1,10 +1,10 @@
 <template>
     <div>
+        <tong-toolbar-layout></tong-toolbar-layout>
         <tong-hierarchy-tabs :popupDatas="popupDatas" v-resize-right></tong-hierarchy-tabs>
         <tong-inspector-tabs :popupDatas="popupDatas" v-resize-left></tong-inspector-tabs>
         <tong-resource-tabs :popupDatas="popupDatas" v-resize-top="[{effect:'hierarchy-tabs',dir:'right'},{effect:'inspector-tabs',dir:'left'}]"></tong-resource-tabs>
-        <tong-render-layout ref="render-layout" @t-resize="renderResize" v-effect-resize="[{effect:'hierarchy-tabs',dir:'right'},{effect:'resource-tabs',dir:'top'},{effect:'inspector-tabs',dir:'left'}]"></tong-render-layout>
-        <tong-toolbar-layout v-effect-resize="[{effect:'hierarchy-tabs',dir:'right'},{effect:'inspector-tabs',dir:'left'}]"></tong-toolbar-layout>
+        <tong-render-tabs :popupDatas="popupDatas" ref="render-tabs" @t-resize="renderResize" v-effect-resize="[{effect:'hierarchy-tabs',dir:'right'},{effect:'resource-tabs',dir:'top'},{effect:'inspector-tabs',dir:'left'}]"></tong-render-tabs>
     </div>
 </template>
 <script>
@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         renderResize(width, height) {
-            this.$refs['render-layout'].setSize(width, height)
+            this.$refs['render-tabs'].setSize(width, height)
         }
     }
 }

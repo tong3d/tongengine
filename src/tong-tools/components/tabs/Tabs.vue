@@ -78,11 +78,13 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
->>> .el-tabs__header
+>>>.el-tabs__header
     padding: 0
     position: relative
     margin: 0 0 0px
->>> .el-tabs__content
+>>>.el-tabs__content
+    width 100%
+    height calc(100% - 41px)
 .tong_tabs
 .tong_el_tabs
 .tong_el_tab_pane
