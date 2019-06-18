@@ -1,18 +1,19 @@
 import Vue from 'vue'
 //import Vuex from "vuex";
 //Vue.config.productionTip = false
-import TongEditor from "./tong-editor"
-import TongEngine from "./tong-render"
-import Tools from "./tong-tools"
+import TongEditor from './tong-editor'
+import TongEngine from './tong-render'
+import Tools from './tong-tools'
 import Inspector from './tong-inspector'
-import Resource from "./tong-resource"
-import Hierarchy from "./tong-hierarchy"
-import Toolbar from "./tong-toolbar"
+import Resource from './tong-resource'
+import Hierarchy from './tong-hierarchy'
+import Toolbar from './tong-toolbar'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // import './element-#313131/index.css'
 import i18n from './public/assets/i18n'
 import App from './tong-editor/App.vue'
+import store from './public/store'
 Vue.use(TongEditor)
 Vue.use(TongEngine)
 Vue.use(Element,{
@@ -26,5 +27,6 @@ Vue.use(Toolbar)
 
 new Vue({
   i18n,
+  store,
   render: h => h(App),
 }).$mount('#app')

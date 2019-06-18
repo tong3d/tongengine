@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tong-toolbar-layout></tong-toolbar-layout>
+        <tong-toolbar-layout :toolbars="toolbars"></tong-toolbar-layout>
         <tong-hierarchy-tabs :popupDatas="popupDatas" v-resize-right></tong-hierarchy-tabs>
         <tong-inspector-tabs :popupDatas="popupDatas" v-resize-left></tong-inspector-tabs>
         <tong-resource-tabs :popupDatas="popupDatas" v-resize-top="[{effect:'hierarchy-tabs',dir:'right'},{effect:'inspector-tabs',dir:'left'}]"></tong-resource-tabs>
@@ -47,6 +47,12 @@ export default {
                     ]
                 }
             }
+        }
+    },
+    data() {
+        console.log(this.$store)
+        return {
+            toolbars: this.$store.toolbar.state.toolbars
         }
     },
     methods: {
