@@ -38,10 +38,13 @@ export default {
            let data=itemCom.$parent.item
            this.$emit('select',data,itemCom)
         },
-        open(left,top){
+        open(left,top) {
             this.$refs.popupListMenu.$el.style.left=`${left || 0}px`
             this.$refs.popupListMenu.$el.style.top=`${top || 0}px`
             this.$refs.popupListMenu.open(this.activeIndex)
+        },
+        close() {
+            this.$refs.popupListMenu.close(this.activeIndex)
         }
     },
     mounted(){

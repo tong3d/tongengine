@@ -1,11 +1,12 @@
 <template>
     <div>
+        <tong-popup-menu ref="popupContext" :data="popupData"></tong-popup-menu>
         <el-button-group v-for="(item,i) in toolbars.children" :key="i">
             <component v-for="(cItem,j) in item.children" :icon="cItem.icon" 
             v-model="cItem.value"
             v-bind="cItem.type==='el-select'?select_data:{}"
             :placeholder="cItem.placeholder"
-            :size="toolbars.size" :src="cItem.src" :is="initItem(cItem)" @click="clickItem(cItem,item)" :type="cItem.value?'primary':''" :key="j">
+            :size="toolbars.size" :src="cItem.src" @mouseover.native="handleMouseOver(cItem, item)" :is="initItem(cItem)" @click="clickItem(cItem,item)" :type="cItem.value?'primary':''" :key="j">
                 <div v-if="cItem.type==='el-select'">
                     <el-option
                     v-for="item in cItem.value"
@@ -39,10 +40,27 @@ export default {
                 filterable:true,
                 remote:true,
                 'reserve-keyword':true
-            }
+            },
+            popupData: {}
         }
     },
     methods:{
+        handleMouseOver(currItem, itemList) {
+            if(currItem.trigger === 'hover') {
+                switch (itemList.action) {
+                    case 'menu':
+                        this.popupData = currItem.value
+                        this.$refs[`popupContext`].open(currItem.left, currItem.top)
+                        this.hoverItem = {'hover': currItem}
+                        break
+                }
+            } else {
+                if (this.hoverItem && this.hoverItem['hover']){
+                    this.hoverItem['hover'] = null
+                    this.$refs[`popupContext`].close()
+                }
+            }
+        },
         initItem(item) {
             item.id=item.id || currId++
             this.$set(item, 'value', item.value || false)
@@ -52,6 +70,9 @@ export default {
         loading() {},
         remoteMethod() {},
         clickItem(currItem, itemList) {
+            if(currItem.trigger && currItem.trigger !== 'click') {
+                return
+            }
             switch(itemList.action) {
                 case 'radio':
                     currItem.value = true

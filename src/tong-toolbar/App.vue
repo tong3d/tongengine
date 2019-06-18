@@ -10,15 +10,49 @@ export default {
       return {
           toolbars: {
             children: [
-              // {
-              //   action: 'menu',
-              //   children: [{
-              //       trigger: 'hover',
-              //       type: 'el-image',
-              //       src: 'https://tong3d.com/engine/css/pic/toolBar/logoMini.png'
-              //     }
-              //   ]
-              // },
+              {
+                action: 'menu',
+                children: [{
+                    trigger: 'hover',
+                    type: 'tong-image',
+                    left: 0,
+                    top: 42,
+                    value: {
+                      color:'#aaa',
+                      children:[{
+                          label:this.$t('File'),
+                          value:'File',
+                          icon:'',
+                          disabled:false,
+                          children:[]
+                      },
+                      {
+                          label:this.$t('Edit'),
+                          value:'Edit',
+                          icon:'',
+                          disabled:false,
+                          children:[]
+                      },
+                      {
+                          label:this.$t('Add'),
+                          value:'Add',
+                          icon:'',
+                          disabled:false,
+                          children:[]
+                      },
+                      {
+                          label:this.$t('Play'),
+                          value:'Play',
+                          icon:'',
+                          disabled:false,
+                          children:[]
+                      }
+                      ]
+                },
+                    src: 'https://tong3d.com/engine/css/pic/toolBar/logoMini.png'
+                  }
+                ]
+              },
               {
                 action: 'radio',
                 children: [

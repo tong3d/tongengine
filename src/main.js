@@ -11,7 +11,7 @@ import Toolbar from "./tong-toolbar"
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // import './element-#313131/index.css'
-import i18n from './assets/i18n'
+import i18n from './public/assets/i18n'
 import App from './tong-editor/App.vue'
 Vue.use(TongEditor)
 Vue.use(TongEngine)
