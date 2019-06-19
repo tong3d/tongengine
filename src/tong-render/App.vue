@@ -3,9 +3,9 @@
     <renderer>
       <!-- <dat-gui :setup="uiSetup" :model="ui"></dat-gui> -->
       <scene>
-        <orbit-controls :config="{position:{x:0,y:100,z:100},rotation:{ x: 2, y: 0, z: 3 }}">
-          <camera></camera>
-        </orbit-controls>
+        <camera></camera>
+        <!-- <orbit-controls :config="{position:{x:0,y:100,z:100},rotation:{ x: 2, y: 0, z: 3 }}">
+        </orbit-controls> -->
       </scene>
     </renderer>
   </div>

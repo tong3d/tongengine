@@ -9,7 +9,7 @@
                 :label="item.title"
                 :name="item.name"
             >
-            <component class="tong_el_tab_component" :if='item.content && item.content.length>0' :is= 'item.content'></component>
+            <component ref="targetComponent" class="tong_el_tab_component" :if='item.content && item.content.length>0' :is= 'item.content'></component>
             </el-tab-pane>
         </tong-el-tabs>
     </div>
@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         // 右键菜单弹出选择事件
-        onPopupSelect(data,itemCom){
+        onPopupSelect(data, itemCom) {
             let selectItem=data.label
             let newTabName = ++this.tabIndex + ''
             this.editableTabs.push({

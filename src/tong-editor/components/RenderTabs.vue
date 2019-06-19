@@ -1,17 +1,17 @@
 <template>
     <div ref="renderLayout" class="renderLayout">
-        <tong-tabs :popupDatas="popupDatas" :editableTabs='editableTabs'></tong-tabs>
+        <tong-tabs ref="renderScene" :popupDatas="popupDatas" :editableTabs='editableTabs'></tong-tabs>
     </div>
 </template>
 <script>
 export default {
     mounted() {
-        // let bounding = this.$refs['renderLayout'].getBoundingClientRect()
-        // this.setSize(bounding.width,bounding.height)
+        let bounding = this.$refs['renderLayout'].getBoundingClientRect()
+        this.setSize(bounding.width,bounding.height)
     },
-    methods:{
+    methods: {
         setSize(width, height) {
-            // this.$refs['renderScene'].$children[0].setSize(width, height)
+            this.$refs['renderScene'].$refs['targetComponent'][0].$children[0].setSize(width, height)
         }
     },
     props: {

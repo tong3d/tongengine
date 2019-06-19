@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import Toolbar from "../../tong-toolbar/App";
+import Toolbar from "../../tong-toolbar/App"
 export default {
     components:{
         Toolbar

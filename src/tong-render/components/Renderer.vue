@@ -22,14 +22,16 @@ export default {
     size: {
       type: Object, // { width, height }
       default() {
-       return { width: 0,
+        return { width: 0,
                 height: 0
               }
       }
     },
     backgroundColor: {
       type:Number,
-      default:0x000000
+      default() {
+        return 0x007DCF
+      }
     },
   },
   data () {
@@ -59,7 +61,7 @@ export default {
     function awake() {
       that.global.scene && !that.global.scene.container2D && (that.global.scene.container2D = this)
       that.game2d.lifeCycle.awakes.forEach(awakeFunc => {
-        awakeFunc({scene2D:that.global.scene.container2D, global:that.global})
+        awakeFunc({scene2D: that.global.scene.container2D, global:that.global})
       })
     }
     // prepared and game start
@@ -72,13 +74,13 @@ export default {
       }
       renderer3d.autoClear = false
       that.game2d.lifeCycle.starts.forEach(startFunc => {
-        startFunc({scene2D:that.global.scene.container2D, global: that.global})
+        startFunc({scene2D: that.global.scene.container2D, global: that.global})
       })
     }
     // game update
     function update(time,delta) {
       that.game2d.lifeCycle.updates.forEach(updateFunc => {
-        updateFunc({time,delta, scene2D: that.global.scene.container2D, global:that.global})
+        updateFunc({time, delta, scene2D: that.global.scene.container2D, global:that.global})
       })
     }
     let game2d = new Game(config)
