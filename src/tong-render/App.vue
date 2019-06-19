@@ -11,6 +11,16 @@
   </div>
 </template>
 <script>
+export default {
+  props: {
+    renders: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  }
+}
 </script>
 <style lang="stylus" scoped>
 .render_app
