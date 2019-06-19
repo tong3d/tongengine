@@ -1,10 +1,10 @@
 const state = {
-    renders: {
+    data: {
     }
 }
 const getters = {
     renders(state) {
-        return state.renders
+        return state.data
     }
 }
 const actions = {

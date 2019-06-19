@@ -9,7 +9,7 @@ export default {
     inspectors: {
       type: Object,
       default() {
-        return {}
+        return this.$store.state.inspector.data
       }
     }
   },

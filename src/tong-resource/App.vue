@@ -9,7 +9,7 @@ export default {
     resources: {
       type: Object,
       default() {
-        return {}
+        return this.$store.state.resource.data
       }
     }
   },

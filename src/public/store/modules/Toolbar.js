@@ -1,5 +1,5 @@
 const state = {
-    toolbars: {
+    data: {
         children: [
           {
             action: 'menu',
@@ -11,28 +11,28 @@ const state = {
                 value: {
                   color:'#aaa',
                   children:[{
-                      label:this.$t('File'),
+                      label:'File',
                       value:'File',
                       icon:'',
                       disabled:false,
                       children:[]
                   },
                   {
-                      label:this.$t('Edit'),
+                      label:'Edit',
                       value:'Edit',
                       icon:'',
                       disabled:false,
                       children:[]
                   },
                   {
-                      label:this.$t('Add'),
+                      label:'Add',
                       value:'Add',
                       icon:'',
                       disabled:false,
                       children:[]
                   },
                   {
-                      label:this.$t('Play'),
+                      label:'Play',
                       value:'Play',
                       icon:'',
                       disabled:false,
@@ -76,7 +76,7 @@ const state = {
               {
                 type: 'el-select',
                 value: {},
-                placeholder: `${this.$t('Help')}...?`,
+                placeholder: `Help...?`,
                 icon: 'iconfont tong-iconearth'
               }
             ]
@@ -123,7 +123,7 @@ const state = {
 }
 const getters = {
     toolbars(state) {
-        return state.toolbars
+        return state.data
     }
 }
 const actions = {

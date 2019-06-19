@@ -1,5 +1,5 @@
 const state = {
-    resources: {
+    data: {
         isOutterDrag:false,
         onlyRenderFolder:true,
         actions:{
@@ -40,7 +40,6 @@ const state = {
                    
                     label: '二级 3-1'
                 }, {
-                    
                     label: '二级 3-2',
                     children: [{
                     
@@ -49,7 +48,7 @@ const state = {
                    
                     label: '三级 3-2-2'
                     }, {
-                   
+
                     label: '三级 3-2-3'
                     }]
                 }]
@@ -61,7 +60,7 @@ const state = {
 }
 const getters = {
     resources(state) {
-        return state.resources
+        return state.data
     }
 }
 const actions = {

@@ -12,7 +12,7 @@ export default {
     hierarchy: {
       type: Object,
       default() {
-        return {}
+        return this.$store.state.hierarchy.data
       }
     }
   },

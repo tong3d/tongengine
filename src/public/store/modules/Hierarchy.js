@@ -1,5 +1,5 @@
 const state = {
-    hierarchies: {
+    data: {
         isOutterDrag:false,
         actions:{
           //上传的链接
@@ -55,7 +55,7 @@ const state = {
 }
 const getters = {
     hierarchies(state) {
-        return state.hierarchies
+        return state.data
     }
 }
 const actions = {

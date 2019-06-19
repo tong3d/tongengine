@@ -9,7 +9,7 @@ export default {
     toolbars: {
       type: Object,
       default() {
-        return {}
+        return this.$store.state.toolbar.data
       }
     }
   }

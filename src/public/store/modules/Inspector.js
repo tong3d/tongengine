@@ -1,8 +1,8 @@
 const state = {
-    inspectors: {
+    data: {
         bottomButton:{
           maginTop:8,
-          name:this.$t('Add Component'),
+          name:'Add Component',
           callback:()=>{
             this.addComponent()
           }
@@ -76,7 +76,7 @@ const state = {
 }
 const getters = {
     inspectors(state) {
-        return state.inspectors
+        return state.data
     }
 }
 const actions = {
