@@ -19,25 +19,32 @@ export default {
     }
   },
   props: {
+    canvas: {
+      type: Object,
+      default() {
+        return null
+      }
+    },
     size: {
       type: Object, // { width, height }
       default() {
-        return { width: 0,
-                height: 0
-              }
+        return {
+          width: 0,
+          height: 0
+        }
       }
     },
     backgroundColor: {
       type:Number,
       default() {
-        return 0x007DCF
+        return 0x000000
       }
     },
   },
   data () {
     let that=this
     let parameters = {antialias: true}
-    this.canvas && (arameters.canvas = this.canvas)
+    this.canvas && (parameters.canvas = this.canvas)
     let renderer3d = new WebGLRenderer( parameters )
     let config = {
         width: this.size.width,
@@ -61,7 +68,7 @@ export default {
     function awake() {
       that.global.scene && !that.global.scene.container2D && (that.global.scene.container2D = this)
       that.game2d.lifeCycle.awakes.forEach(awakeFunc => {
-        awakeFunc({scene2D: that.global.scene.container2D, global:that.global})
+        awakeFunc({scene2D: that.global.scene.container2D, global: that.global})
       })
     }
     // prepared and game start
@@ -76,6 +83,7 @@ export default {
       that.game2d.lifeCycle.starts.forEach(startFunc => {
         startFunc({scene2D: that.global.scene.container2D, global: that.global})
       })
+      that.setSize(that.size.width, that.size.height)
     }
     // game update
     function update(time,delta) {
@@ -93,11 +101,21 @@ export default {
   },
   methods: {
     setSize(width, height) {
+      this.size.width = width
+      this.size.height = height
       this.renderer3d.setSize(width, height)
+      try {
+        this.game2d.scale.resize(width, height)
+      } catch(e) {
+        console.warn('TongEngine 2d width or height undefined')
+      }
     }
   },
   mounted () {
+    let boundingRect = this.$refs['container'].getBoundingClientRect()
     this.$refs['container'].appendChild(this.global.rendererDom)
+    // console.log(boundingRect.width, boundingRect.height)
+    // this.setSize(boundingRect.width, boundingRect.height)
   }
 }
 </script>

@@ -11,6 +11,7 @@ export default {
     let curObj = this.obj
     if (!curObj) {
       curObj = new Scene()
+      curObj.background = new THREE.Color(0x0F68C2)
     }
     curObj.name = curObj.name || curObj.type
     return { curObj }

@@ -33,7 +33,7 @@
     position absolute
     left 300px
     right 300px
-    height 360px
+    height 300px
     bottom 0px
     min-height 300px
     border-top 1px solid #EEE

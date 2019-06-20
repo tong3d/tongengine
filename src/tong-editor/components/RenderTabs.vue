@@ -41,7 +41,7 @@ export default {
 .renderLayout
     position absolute
     top 42px
-    bottom 360px
+    bottom 300px
     left 300px
     right 300px
     border-bottom 1px solid #EEE

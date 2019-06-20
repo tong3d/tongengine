@@ -7500,10 +7500,10 @@ thread-loader@^2.1.2:
     loader-utils "^1.1.0"
     neo-async "^2.6.0"
 
-three@^0.104.0:
-  version "0.104.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.104.0.tgz#9ad1da492153b753a89e0df066631215bd9d9087"
-  integrity sha512-q617IMBC5k40U2E9UC4/LtmhzTOOLB1jGMIooUL+QrhZ7abiGCSDrKrpCDt9V8RTl6xw+0FYfA1PYsIPKbQOgg==
+three@^0.86.0:
+  version "0.86.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.86.0.tgz#1c33e476a1537e9a8a18f5792d024b1046cd2000"
+  integrity sha1-HDPkdqFTfpqKGPV5LQJLEEbNIAA=
 
 throttle-debounce@^1.0.1:
   version "1.1.0"
